@@ -11,11 +11,9 @@ class AWSServicesTableViewController: UITableViewController {
 
     // Sample data
     var awsServices = [
-        Service(id: 1, shortName: "API Gateway", longName: "Amazon API Gateway",
-                description: "", serviceRegionName: "", feedUrl: "", imageUrl: "api-gateway"),
-        Service(id: 2, shortName: "Pinpoint", longName: "Amazon Pinpoint", description: "", serviceRegionName: "", feedUrl: "", imageUrl: "pinpoint"),
-        Service(id: 3, shortName: "Amplify", longName: "AWS Amplify", description: "", serviceRegionName: "", feedUrl: "",imageUrl: "amplify"),
-        Service(id: 4, shortName: "Device Farm", longName: "AWS Device Farm", description: "", serviceRegionName: "", feedUrl: "", imageUrl: "device-farm")
+        Service(id: 1, shortName: "Pinpoint", longName: "Amazon Pinpoint", description: "", serviceRegionName: "", feedUrl: "", imageUrl: "pinpoint"),
+        Service(id: 2, shortName: "Amplify", longName: "AWS Amplify", description: "", serviceRegionName: "", feedUrl: "",imageUrl: "amplify"),
+        Service(id: 3, shortName: "Device Farm", longName: "AWS Device Farm", description: "", serviceRegionName: "", feedUrl: "", imageUrl: "device-farm")
     ]
     
     override func viewDidLoad() {
@@ -32,7 +30,7 @@ class AWSServicesTableViewController: UITableViewController {
         let service = awsServices[indexPath.row]
         cell.textLabel?.text = service.shortName
         cell.detailTextLabel?.text = service.longName
-        cell.imageView?.image = UIImage(named: service.imageUrl)
+        cell.imageView?.image = UIImage(named: service.imageUrl ?? "")
 
         return cell
     }
