@@ -11,10 +11,11 @@ class AWSServicesTableViewController: UITableViewController {
 
     // Sample data
     var awsServices = [
-        Service(id: 1, name: "API Gateway", officialName: "Amazon API Gateway", image: "Amazon-API-Gateway"),
-        Service(id: 2, name: "Pinpoint", officialName: "Amazon Pinpoint", image: "Amazon-Pinpoint"),
-        Service(id: 3, name: "Amplify", officialName: "AWS Amplify", image: "AWS-Amplify"),
-        Service(id: 4, name: "Device Farm", officialName: "AWS Device Farm", image: "AWS-Device-Farm")
+        Service(id: 1, shortName: "API Gateway", longName: "Amazon API Gateway",
+                description: "", serviceRegionName: "", feedUrl: "", imageUrl: "api-gateway"),
+        Service(id: 2, shortName: "Pinpoint", longName: "Amazon Pinpoint", description: "", serviceRegionName: "", feedUrl: "", imageUrl: "pinpoint"),
+        Service(id: 3, shortName: "Amplify", longName: "AWS Amplify", description: "", serviceRegionName: "", feedUrl: "",imageUrl: "amplify"),
+        Service(id: 4, shortName: "Device Farm", longName: "AWS Device Farm", description: "", serviceRegionName: "", feedUrl: "", imageUrl: "device-farm")
     ]
     
     override func viewDidLoad() {
@@ -29,9 +30,9 @@ class AWSServicesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
 
         let service = awsServices[indexPath.row]
-        cell.textLabel?.text = service.name
-        cell.detailTextLabel?.text = service.officialName
-        cell.imageView?.image = UIImage(named: service.image)
+        cell.textLabel?.text = service.shortName
+        cell.detailTextLabel?.text = service.longName
+        cell.imageView?.image = UIImage(named: service.imageUrl)
 
         return cell
     }
@@ -39,7 +40,10 @@ class AWSServicesTableViewController: UITableViewController {
 
 struct Service {
     var id : Int
-    var name : String
-    var officialName : String
-    var image : String
+    var shortName : String
+    var longName : String
+    var description : String
+    var serviceRegionName: String
+    var feedUrl : String
+    var imageUrl: String
 }
